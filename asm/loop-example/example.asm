@@ -153,9 +153,6 @@ ja exit
 ; loop to check if pass 0.055 ms
 loop2:
 
-call printMiliSec
-call printEOL
-
     loop1:
         ; call clock
         mov ah, 2Ch
@@ -164,7 +161,11 @@ call printEOL
         mov [savetime],dx 
         call printPeriod       
         je loop1
-   
+ 
+      
+call printEOL
+call printMiliSec
+call printEOL  
 ; loop to check if 18 loops of 0.055 occured 
     mov al, dl
     inc bx
