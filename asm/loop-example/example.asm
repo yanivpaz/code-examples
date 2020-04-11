@@ -1,9 +1,10 @@
 ;print 0-9 code:
+; GUI Turbo Assembler or TASM using DoxBox 
 IDEAL
 MODEL small
 STACK 100h
 DATASEG
-counter db 1h
+userInputs db 1h
 currentdl db 0h
 savetime dw ?
 divisorTable db 10,1,0
@@ -11,6 +12,22 @@ eoltxt db 13,10,'start : ','$'
 ;mov dx, offset eoltxt
 
 CODESEG
+proc printComma
+
+push ax
+push dx
+mov ah,9
+
+mov dl,2Ch
+mov ah, 2h
+int 21h
+
+pop dx
+pop ax 
+ret
+endp printComma
+;--------------
+
 proc printPeriod
 
 push ax
@@ -25,9 +42,9 @@ pop dx
 pop ax 
 ret
 endp printPeriod
+;--------------
 
 proc printSpace
-
 push ax
 push dx
 mov ah,9
@@ -40,8 +57,6 @@ pop dx
 pop ax 
 ret
 endp printSpace
-;--------------
-
 ;------------------
 proc printEOL
 
@@ -61,8 +76,6 @@ pop ax
 ret
 endp printEOL
 ;------------------
-
-
 proc printCharacter
 push ax
 push bx
@@ -96,7 +109,7 @@ nextDigit :
  pop ax
  ret
 endp printNumber
-;---------------------printNumberber start 
+
 ;---------------------Print MiliSec start 
 proc printMiliSec
 push ax
@@ -105,10 +118,6 @@ push dx
 mov dx, [savetime]
 mov al, dl
 call printNumber
-
-
-
-
 mov dx,[savetime]
 mov al,dl
 call printNumber
@@ -117,13 +126,11 @@ pop dx
 pop ax 
 ret
 endp printMiliSec
-;---------------------MiliSec end 
-
 ;---------------------printSingleNumber start 
 proc printSingleNumber
 push ax
 push dx
-mov dl,counter
+mov dl,userInputs
 add dl, '0'
 mov ah, 2h
 int 21h
@@ -137,42 +144,34 @@ start:
 mov ax, @data
 mov ds, ax
 
-; call clock
-mov ah, 2Ch
-int 21h
-mov al, dl ;1/100=hundredths
-mov cx, 0
 
-
-; loop to print 10 numbers 
+; loop to print 5 numbers 
 loop3:
-mov bx, 0
-cmp counter, 3
+cmp userInputs, 5
 ja exit 
-
+mov bx, 0
+call printEOL
+call printSingleNumber
+call printPeriod  
 ; loop to check if pass 0.055 ms
 loop2:
-
+call printMiliSec
+call printComma
     loop1:
         ; call clock
         mov ah, 2Ch
         int 21h
         cmp al, dl
         mov [savetime],dx 
-        call printPeriod       
+        ; call printPeriod       
         je loop1
- 
-      
-call printEOL
-call printMiliSec
-call printEOL  
 ; loop to check if 18 loops of 0.055 occured 
     mov al, dl
     inc bx
     cmp bx, 18
     jne loop2
-call printSingleNumber
-inc counter
+
+inc userInputs
 loop loop3
 
 
