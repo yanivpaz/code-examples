@@ -1,46 +1,43 @@
-# Demo project for python Arduino
+# Demo project for python Arduino using WSL1
 
 ## Arduino IDE
-Install Arduio driver and IDE from  from hourly build https://www.arduino.cc/en/Main/Software
-update the Drivers as explained in https://www.arduino.cc/en/Guide/DriverInstallation
+* Install Arduio driver and IDE from  from hourly build https://www.arduino.cc/en/Main/Software
+ ( Installataion can also be done from store )
+* Update the Drivers as explained in https://www.arduino.cc/en/Guide/DriverInstallation
 (drivers location is arduino-nightly-windows\arduino-nightly\drivers)
 
-installataion can also be done from store 
 
 ## Find the correct COM
+find Arduino serial port via device manager .
+<b> note </b> : /dev/ttyS3 is the WSL name for COM3
 
-
-https://blogs.msdn.microsoft.com/wsl/2017/04/14/serial-support-on-the-windows-subsystem-for-linux/
 https://icircuit.net/accessing-com-port-from-wsl/2704
 
+## Install the python pyfirmata2 package
+The demo application is based on python3 and pyfirmata2 . 
+python2 might work as well but was not tested .
 ```
-sudo apt install cu
-cu -l /dev/ttyS3 -s 9600
-```
-
-
-## Install the python packages 
-```
-sudo apt-get install python-setuptools
-sudo easy_install pip
-sudo pip install pyserial
-sudo pip install pyfirmata
+sudo apt install python3-pip
+sudo pip install pyfirmata2
 ```
 
-## setup the wires 
-
+## Setup the wires in Arduino
 https://create.arduino.cc/projecthub/GodsVictor1/simple-blinking-led-bf4fc3
 
-
-## Check from WSL 
-```
- python wsl-test.py
-```
-
-## More info
-*  https://github.com/microsoft/WSL/issues/1929 
+## Test the board 
 
 
+## Load fyfirmata sketch via Arduino IDE
+fyfirmata must be loaded to Arduino board
+See the section "Uploading the Firmata Sketch" in https://realpython.com/arduino-python/
+
+## Run the blink.py
 ```
-cu -l /dev/ttyS3 --debug all -s 1200
+sudo python3 ./blink.py
 ```
+
+to see example of blink.py for native windows see
+https://github.com/berndporr/pyFirmata2/blob/master/examples/blink.py
+
+## Future 
+* WSL2 is not yet supporting USB 
