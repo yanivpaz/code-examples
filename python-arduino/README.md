@@ -7,7 +7,7 @@ the purpose of this checklist is to demonstrate the same on WSL1.
 
 * Install Arduino Drivers as explained in [here](https://www.arduino.cc/en/Guide/DriverInstallation).  
 
-* The demo application is based on python3 and pyfirmata2.   
+* The demo application is based on python3 and [pyfirmata2](https://pypi.org/project/pyFirmata2/).   
 python2 might work as well but was not tested .
 ```
 sudo apt install python3-pip
