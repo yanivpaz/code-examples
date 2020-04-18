@@ -1,9 +1,13 @@
 
-a = arr.array('i', [2, 4, 6, 8])
+#!/usr/bin/python
+import boto3
+import time
+import subprocess 
+from datetime import  datetime
+import json
 
-print("First element:", a[0])
-print("Second element:", a[1])
-print("Last element:", a[-1])
+sqs = boto3.resource ('sqs')
+queue = sqs.get_queue_by_name(QueueName='YanivSQS')
 
 while True:
     for message in queue.receive_message (MessageAttributeNames=['Author']):
