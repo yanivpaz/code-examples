@@ -1,4 +1,3 @@
-
 #!/usr/bin/python
 import boto3
 import time
@@ -19,19 +18,19 @@ while True:
         else:
           print ('message from IOT : {0}'.format (message.body))
           data = json.loads(message.body)
-          if data["serialNumber"] == "GG"
+          if data["serialNumber"] == "GG":
              data["username"] = "yaniv"
           clickType = data["clickType"]
-          if clickType == "SINGLE"
+          if clickType == "SINGLE" :
             print ("Recedived SINGLE");
             message.delete()
             data["cmp"] = "XXX"
-          elif clickType == "DOUBLE"
+          elif clickType == "DOUBLE" :
             print ("Recedived SINGLE");
             message.delete()
             data["cmp"] = "YYY"
             subprocess.call ("run_command",shell=True)
-          elif clickType == "LONG"
+          elif clickType == "LONG" :
             print ("Recedived SINGLE");
             message.delete()
             data["cmp"] = "YYY"
