@@ -1,7 +1,8 @@
 
 from selenium import webdriver
 
-driver = webdriver.Chrome("C:/_me/chromedriver_win32/chromedriver.exe")
+# driver = webdriver.Chrome("C:/_me/chromedriver_win32/chromedriver.exe")
+driver = webdriver.Chrome()
 
 driver.get('https://web.whatsapp.com/')
 
