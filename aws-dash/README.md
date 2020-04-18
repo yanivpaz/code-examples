@@ -13,4 +13,6 @@ sudo pip install boto3
 ## Execution 
 
 
+## more info
+https://www.hackster.io/AmazonWebServices
 
