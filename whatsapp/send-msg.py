@@ -1,8 +1,10 @@
 
 from selenium import webdriver
 
-# driver = webdriver.Chrome("C:/_me/chromedriver_win32/chromedriver.exe")
 driver = webdriver.Chrome()
+# example for xustom path 
+# driver = webdriver.Chrome("C:/_me/chromedriver_win32/chromedriver.exe")
+
 
 driver.get('https://web.whatsapp.com/')
 
@@ -15,9 +17,9 @@ input('Enter anything after scanning QR code')
 user = driver.find_element_by_xpath('//span[@title = "{}"]'.format(name))
 user.click()
 
-msg_box = driver.find_element_by_class_name('input-container')
+msg_box = driver.find_element_by_class_name('_2S1VP')
 
 for i in range(count):
     msg_box.send_keys(msg)
-    button = driver.find_element_by_class_name('compose-btn-send')
+    button = driver.find_element_by_class_name('_35EW6')
     button.click()
