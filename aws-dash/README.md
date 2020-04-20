@@ -7,7 +7,7 @@
 - Test it with MQTT.fx
 
 ```
-sudo pip install boto3 
+sudo pip3 install boto3 
 ```
 
 ## Execution 
