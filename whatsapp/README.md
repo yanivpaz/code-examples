@@ -12,3 +12,4 @@ C:\Python38-32\Scripts>pip3 install selenium
 ```
     driver = webdriver.Chrome("C:/my-path/chromedriver_win32/chromedriver.exe")
 ```
+psx
