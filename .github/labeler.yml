@@ -14,7 +14,12 @@ Documentation:
 - changed-files:
   - any-glob-to-any-file: docs/**
 
+# Add 'iac' label to any changes within 'terraform' folder or any subfolders
+iac:
+- changed-files:
+  - any-glob-to-any-file: terraform/**
 
+  
 # Add 'source' label to any change to src files within the source dir EXCEPT for the docs sub-folder
 source:
 - all:
