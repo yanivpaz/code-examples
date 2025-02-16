@@ -1,4 +1,4 @@
-name: PR Label Check
+name: PR Label Check  
 
 on:
   pull_request:
