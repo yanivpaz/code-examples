@@ -1,5 +1,5 @@
 # Add 'github-workflow' label to any changes within '.github' folder or any subfolders
-iac:
+workflow:
 - changed-files:
   - any-glob-to-any-file: .github/workflows/**
 
