@@ -11,7 +11,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Check labels
-        uses: Optimal-AI/PR-Label-Checker@1.0.3
+      - name: check
+        uses: NathanielHill/check-pr-label-action@v4.0.0
         with:
-          required_labels: bug, feature, documentation, enhancement
+           github-token: '${{ secrets.GITHUB_TOKEN }}'
+           valid-labels: 'bug, enhancement'
+
+     
