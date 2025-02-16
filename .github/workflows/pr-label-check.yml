@@ -1,0 +1,17 @@
+name: PR Label Check
+
+on:
+  pull_request:
+    types: [opened, labeled, unlabeled, synchronize]
+
+jobs:
+  check-labels:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Check labels
+        uses: TaraAI/pr-label-checker@v1.0.3
+        with:
+          required_labels: bug, feature, documentation, enhancement
