@@ -8,7 +8,7 @@
 # The project is an initiative of the OpenSSF (openssf.org) and is developed at
 # https://github.com/slsa-framework/slsa-github-generator.
 # The provenance file can be verified using https://github.com/slsa-framework/slsa-verifier.
-# For more information about SLSA and how it improves the supply-chain, visit slsa.dev.
+# For more information about SLSA and how it improves the supply-chain, visit slsa.dev.  
 
 name: SLSA generic generator
 on:
